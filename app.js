@@ -1,4 +1,6 @@
 const express=require("express");
+require("dotenv").config();
+const PORT=process.env.PORT||3000
 const app=express();
 const path=require("path");
 app.set("view engine", 'ejs');
@@ -63,7 +65,6 @@ app.get("/delete/:filename",(req,res)=>{
 })
 
 
-app.listen(3000,()=>{
-    console.log("connected");
-
+app.listen(PORT,()=>{
+    console.log("running at port number 3000")
 })
