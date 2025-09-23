@@ -7,6 +7,8 @@ app.set("view engine", 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
+
 const fs=require('fs');
 app.get("/",(req,res)=>{
     fs.readdir(`./hissab`,(err,files)=>{
@@ -66,5 +68,5 @@ app.get("/delete/:filename",(req,res)=>{
 
 
 app.listen(PORT,()=>{
-    console.log("running at port number 3000")
+    console.log(`running at port number ${PORT}`);
 })
